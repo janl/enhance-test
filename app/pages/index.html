@@ -1,0 +1,18 @@
+<ul id="mainList">
+  <list-item label="hi"></list-item>
+  <list-item label="there"></list-item>
+</ul>
+
+<button id="add">Add+</button>
+<!-- </form> -->
+<script>
+  const btn = document.getElementById('add')
+  btn.addEventListener('click', () => {
+    const list = document.getElementById('mainList')
+    const itm = document.createElement('list-item')
+    itm.id = 999
+    itm.setAttribute('label', 'yaaay')
+    list.appendChild(itm)
+  })
+
+</script>
