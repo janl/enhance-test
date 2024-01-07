@@ -1,14 +1,11 @@
 /* globals customElements */
 import CustomElement from '@enhance/custom-element'
+import MorphdomMixin from '@enhance/morphdom-mixin'
 
-export default class ListItem extends CustomElement {
+export default class ListItem extends MorphdomMixin(CustomElement) {
 
   static get observedAttributes() {
     return [ 'label' ]
-  }
-
-  labelChanged(value) {
-    this.querySelector('li').textContent = value
   }
 
   render ({ html, state }) {

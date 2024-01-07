@@ -5,14 +5,25 @@
 
 <button id="add">Add+</button>
 <!-- </form> -->
+<!-- Need to add script tag so that ListItem is defined. -->
+<script type="module" src="/_public/browser/index.mjs"></script>
 <script>
   const btn = document.getElementById('add')
   btn.addEventListener('click', () => {
     const list = document.getElementById('mainList')
-    const itm = document.createElement('list-item')
+    // We can't use `createElement` because `list-item` has children
+    // so it will throw an error.
+    // const itm = document.createElement('list-item')
+
+    // Option 1: We instantiate the ListItem class, set it's attributes and
+    // add to the DOM
+    const itm = new ListItem()
     itm.id = 999
     itm.setAttribute('label', 'yaaay')
     list.appendChild(itm)
+
+    // Option 2: Smash that text right in there
+    // list.innerHTML = list.innerHTML + `<list-item id="999" label="yaay"></list-item>`
   })
 
 </script>
